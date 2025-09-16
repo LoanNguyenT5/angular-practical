@@ -1,0 +1,24 @@
+<nz-header class="app-header">
+    <div class="left-section">
+        BRAND LOGO
+    </div>
+    <div class="right-section">
+
+        <!-- Language select -->
+        <div class="lang-select" nz-dropdown [nzDropdownMenu]="langMenu">
+            {{ currentLang }}
+            <nz-icon nzType="down"></nz-icon>
+        </div>
+        <nz-dropdown-menu #langMenu="nzDropdownMenu">
+            <ul nz-menu>
+                <li nz-menu-item (click)="changeLang('EN')">EN</li>
+                <li nz-menu-item (click)="changeLang('VI')">VI</li>
+            </ul>
+        </nz-dropdown-menu>
+
+        <!-- Avatar -->
+        <div class="avatar">
+            <nz-avatar nzIcon="user"></nz-avatar>
+        </div>
+    </div>
+</nz-header>

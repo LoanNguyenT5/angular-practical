@@ -1,0 +1,22 @@
+<app-breadcrumb (newUser)="onNewUser()"></app-breadcrumb>
+
+<nz-table #basicTable [nzBordered]="true" [nzData]="listOfData" [nzFrontPagination]="false" [nzScroll]="{ x: '500px' }">
+  <thead>
+    <tr>
+      <th>Login name</th>
+      <th>Created on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-template ngFor let-item [ngForOf]="basicTable.data">
+      <tr (dblclick)="onRowDblClick(item)">
+        <td>{{ item.loginName }}</td>
+        <td>{{ item.createdOn }}</td>
+      </tr>
+    </ng-template>
+  </tbody>
+</nz-table>
+
+<app-user-form [isVisible]="isVisible" [mode]="formMode" [userData]="selectedUser" [existingLogins]="existingLogins"
+  [resetTrigger]="resetFlag" (save)="onSave($event)" (cancel)="onCancel()">
+</app-user-form>

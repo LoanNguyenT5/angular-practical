@@ -1,0 +1,29 @@
+<nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-container">
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+
+            <div style="display: flex; justify-content: flex-end;">
+                <span class="header-trigger" (click)="toggleCollapse()">
+                    <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" />
+                </span>
+            </div>
+
+            <li nz-submenu nzOpen nzTitle="Administration" nzIcon="user">
+                <ul>
+                    <li nz-menu-item routerLink="/user-management" routerLinkActive="ant-menu-item-selected">
+                        User Management
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Role Management</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Footer -->
+        <div class="sidebar-footer">
+            Demo © 2025
+        </div>
+    </div>
+</nz-sider>

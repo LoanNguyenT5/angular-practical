@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #292CF5;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+}
+
+html,
+body {
+  font-size: var(--font-size-md);
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+::ng-deep .ant-btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+::ng-deep .ant-btn-primary:hover,
+::ng-deep .ant-btn-primary:focus {
+  background-color: #1f21c9 !important;
+  border-color: #1f21c9 !important;
+}
+
+::ng-deep .ant-modal,
+::ng-deep .ant-modal-content,
+::ng-deep .ant-modal-body {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+}

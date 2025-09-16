@@ -1,0 +1,33 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #001529;
+    padding: 0 16px;
+    height: 46px;
+    color: #fff;
+
+    .left-section {
+        font-weight: bold;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .lang-select {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #fff;
+        }
+
+        .avatar {
+            cursor: pointer;
+        }
+    }
+}

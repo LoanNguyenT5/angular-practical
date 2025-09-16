@@ -1,0 +1,289 @@
+// Override global modal styles
+::ng-deep .custom-modal {
+  .ant-modal-content {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ant-modal-body {
+    padding: 0;
+  }
+}
+
+::ng-deep .custom-modal.ant-modal-centered .ant-modal {
+  top: 56px !important;
+  transform: none !important;
+  margin: 0 auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  /* hẹp hơn */
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fafafa;
+}
+
+.modal-title {
+  font-size: var(--font-size-md);
+  /* 16px */
+  font-weight: 500;
+  color: #262626;
+  margin: 0;
+}
+
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: var(--font-size-lg);
+  /* 18px */
+  color: #8c8c8c;
+  cursor: pointer;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 2px;
+
+  &:hover {
+    background-color: #f5f5f5;
+    color: #595959;
+  }
+}
+
+.modal-body {
+  padding: 24px;
+  background-color: white;
+}
+
+.section-title {
+  font-size: var(--font-size-md);
+  /* 16px */
+  font-weight: 600;
+  color: #262626;
+  margin: 0 0 20px 0;
+
+  .section-container:first-child & {
+    margin-top: 0;
+  }
+}
+
+.form-field {
+  margin-bottom: 24px;
+}
+
+.field-label {
+  display: block;
+
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.required {
+  color: #ff4d4f;
+}
+
+// Override Ant Design styles
+::ng-deep {
+  .ant-input {
+    padding: 11px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+
+    color: #262626;
+    height: 40px;
+
+    &:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(41, 44, 245, 0.2);
+    }
+  }
+
+  .ant-select {
+    .ant-select-selector {
+      padding: 0 12px;
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      min-height: 40px;
+
+      .ant-select-selection-placeholder {
+        color: #bfbfbf;
+
+        line-height: 38px;
+      }
+
+      .ant-select-selection-item {
+        color: #bfbfbf;
+
+        line-height: 38px;
+      }
+    }
+
+    &.ant-select-focused .ant-select-selector,
+    &.ant-select-open .ant-select-selector {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(41, 44, 245, 0.2);
+    }
+  }
+
+  .ant-checkbox-wrapper {
+
+    color: #262626;
+
+    .ant-checkbox {
+      margin-right: 8px;
+
+      .ant-checkbox-inner {
+        width: 16px;
+        height: 16px;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+      }
+    }
+
+    &.ant-checkbox-wrapper-checked {
+      .ant-checkbox-inner {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.checkbox-field {
+  margin: 14px 0 16px 0;
+}
+
+.roles-section {
+  margin-bottom: 16px;
+}
+
+.roles-label {
+
+  font-weight: 500;
+  color: #8c8c8c;
+  /* xám */
+  margin-bottom: 8px;
+}
+
+.roles-container {
+  display: flex;
+  gap: 16px;
+  /* dãn khoảng cách giữa các checkbox */
+  align-items: center;
+}
+
+
+// .role-item {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .role-name {
+//   
+//   color: #262626;
+//   font-weight: 400;
+// }
+
+// .role-type {
+//   
+//   color: #8c8c8c;
+//   font-weight: 400;
+// }
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fafafa;
+}
+
+// Override Ant Design button styles
+::ng-deep {
+  .ant-btn {
+    height: 32px;
+    padding: 4px 15px;
+
+    border-radius: 6px;
+    font-weight: 400;
+
+    &:not(.ant-btn-primary) {
+      background-color: #ffffff;
+      border-color: #d9d9d9;
+      color: #595959;
+
+      &:hover {
+        background-color: #f5f5f5;
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+    }
+
+    &.ant-btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+
+      &:hover {
+        background-color: #4043ff;
+        /* shade sáng hơn */
+        border-color: #4043ff;
+      }
+
+      &:disabled {
+        background-color: #f5f5f5;
+        border-color: #d9d9d9;
+        color: #bfbfbf;
+
+        &:hover {
+          background-color: #f5f5f5;
+          border-color: #d9d9d9;
+          color: #bfbfbf;
+        }
+      }
+    }
+  }
+}
+
+.error {
+  color: red;
+  font-size: var(--font-size-xs);
+  /* 12px */
+  margin-top: 4px;
+}
+
+.form-box {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+}
+
+.form-box-title {
+  font-weight: 500;
+
+  margin-bottom: 12px;
+}
+
+.short-input {
+  width: 250px;
+}
+
+.fixed-width-select {
+  width: 100px;
+}
+
+.fixed-width-dropdown {
+  width: 100px !important;
+}

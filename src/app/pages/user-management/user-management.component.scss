@@ -1,0 +1,51 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.page-header h2 {
+  margin: 0;
+  /* reset */
+  font-size: var(--font-size-xl);
+  /* 20px */
+}
+
+.page-header button {
+  margin-left: auto;
+}
+
+/* Table responsive */
+nz-table {
+  width: 100%;
+}
+
+nz-table table {
+  min-width: 400px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-header h2 {
+    margin-bottom: 8px;
+  }
+
+  .page-header button {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 12px;
+  }
+
+  nz-table {
+    overflow-x: auto;
+    display: block;
+  }
+}

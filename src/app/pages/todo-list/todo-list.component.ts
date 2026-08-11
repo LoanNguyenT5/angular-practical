@@ -45,8 +45,9 @@ export class TodoListComponent implements OnInit {
       return this.todos;
     }
 
-    const sortedTodos = [...this.todos].sort((a, b) => a.title.localeCompare(b.title));
-    return this.sortDirection === 'asc' ? sortedTodos : sortedTodos.reverse();
+    return [...this.todos].sort((a, b) =>
+      this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
+    );
   }
 
   onSortDirectionChange(event: Event): void {

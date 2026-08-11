@@ -1,12 +1,20 @@
 <div class="todo-list-header">
   <h2>Todo List</h2>
-  <button nz-button nzType="primary" (click)="exportToCsv()">
-    <nz-icon nzType="download" />
-    Export
-  </button>
+  <div class="todo-list-actions">
+    <label for="todo-sort">Sort by title:</label>
+    <select id="todo-sort" [value]="sortDirection" (change)="onSortDirectionChange($event)">
+      <option value="default">Original order</option>
+      <option value="asc">A → Z</option>
+      <option value="desc">Z → A</option>
+    </select>
+    <button nz-button nzType="primary" (click)="exportToCsv()">
+      <nz-icon nzType="download" />
+      Export
+    </button>
+  </div>
 </div>
 
-<nz-table #todoTable [nzBordered]="true" [nzData]="todos" [nzScroll]="{ x: '500px' }">
+<nz-table #todoTable [nzBordered]="true" [nzData]="displayedTodos" [nzScroll]="{ x: '500px' }">
   <thead>
     <tr>
       <th>ID</th>

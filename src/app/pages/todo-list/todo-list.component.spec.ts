@@ -45,6 +45,55 @@ describe('TodoListComponent', () => {
     expect(component.todos.length).toBe(2);
   });
 
+  describe('sorting', () => {
+    it('should display sort control', () => {
+      const select = fixture.nativeElement.querySelector('#todo-sort');
+      expect(select).toBeTruthy();
+    });
+
+    it('should sort todos by title ascending', () => {
+      component.todos = [
+        { id: 1, title: 'Zoo', completed: false },
+        { id: 2, title: 'Apple', completed: true }
+      ];
+      component.sortDirection = 'asc';
+
+      expect(component.displayedTodos.map(todo => todo.title)).toEqual(['Apple', 'Zoo']);
+    });
+
+    it('should sort todos by title descending', () => {
+      component.todos = [
+        { id: 1, title: 'Zoo', completed: false },
+        { id: 2, title: 'Apple', completed: true }
+      ];
+      component.sortDirection = 'desc';
+
+      expect(component.displayedTodos.map(todo => todo.title)).toEqual(['Zoo', 'Apple']);
+    });
+
+    it('should handle empty todo list without errors', () => {
+      component.todos = [];
+      component.sortDirection = 'asc';
+
+      expect(component.displayedTodos).toEqual([]);
+    });
+
+    it('should not mutate original todo data when sorting', () => {
+      const todos: Todo[] = [
+        { id: 1, title: 'Zoo', completed: false },
+        { id: 2, title: 'Apple', completed: true }
+      ];
+      const originalTitles = todos.map(todo => todo.title);
+
+      component.todos = todos;
+      component.sortDirection = 'asc';
+      const sortedTitles = component.displayedTodos.map(todo => todo.title);
+
+      expect(sortedTitles).toEqual(['Apple', 'Zoo']);
+      expect(component.todos.map(todo => todo.title)).toEqual(originalTitles);
+    });
+  });
+
   describe('exportToCsv', () => {
     let createObjectURLSpy: jasmine.Spy;
     let revokeObjectURLSpy: jasmine.Spy;

@@ -19,6 +19,7 @@ import { TodoService, Todo } from '../../services/todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
+  sortDirection: 'default' | 'asc' | 'desc' = 'default';
 
   constructor(
     private todoService: TodoService,
@@ -37,6 +38,23 @@ export class TodoListComponent implements OnInit {
       },
       error: (err) => console.error('Error loading todos', err)
     });
+  }
+
+  get displayedTodos(): Todo[] {
+    if (this.sortDirection === 'default') {
+      return this.todos;
+    }
+
+    const sortedTodos = [...this.todos].sort((a, b) => a.title.localeCompare(b.title));
+    return this.sortDirection === 'asc' ? sortedTodos : sortedTodos.reverse();
+  }
+
+  onSortDirectionChange(event: Event): void {
+    const target = event.target as HTMLSelectElement | null;
+    const value = target?.value;
+    if (value === 'asc' || value === 'desc' || value === 'default') {
+      this.sortDirection = value;
+    }
   }
 
   exportToCsv(): void {

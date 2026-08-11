@@ -50,12 +50,30 @@ export class TodoListComponent implements OnInit {
     );
   }
 
-  onSortDirectionChange(event: Event): void {
-    const target = event.target as HTMLSelectElement | null;
-    const value = target?.value;
-    if (value === 'asc' || value === 'desc' || value === 'default') {
-      this.sortDirection = value;
+  toggleTitleSort(): void {
+    if (this.sortDirection === 'default') {
+      this.sortDirection = 'asc';
+      return;
     }
+
+    if (this.sortDirection === 'asc') {
+      this.sortDirection = 'desc';
+      return;
+    }
+
+    this.sortDirection = 'default';
+  }
+
+  get titleSortLabel(): string {
+    if (this.sortDirection === 'asc') {
+      return 'A → Z';
+    }
+
+    if (this.sortDirection === 'desc') {
+      return 'Z → A';
+    }
+
+    return 'Original';
   }
 
   exportToCsv(): void {

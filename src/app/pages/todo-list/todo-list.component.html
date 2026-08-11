@@ -1,24 +1,21 @@
 <div class="todo-list-header">
   <h2>Todo List</h2>
-  <div class="todo-list-actions">
-    <label for="todo-sort">Sort by title:</label>
-    <select id="todo-sort" [value]="sortDirection" (change)="onSortDirectionChange($event)">
-      <option value="default">Original order</option>
-      <option value="asc">A → Z</option>
-      <option value="desc">Z → A</option>
-    </select>
-    <button nz-button nzType="primary" (click)="exportToCsv()">
-      <nz-icon nzType="download" />
-      Export
-    </button>
-  </div>
+  <button nz-button nzType="primary" (click)="exportToCsv()">
+    <nz-icon nzType="download" />
+    Export
+  </button>
 </div>
 
 <nz-table #todoTable [nzBordered]="true" [nzData]="displayedTodos" [nzScroll]="{ x: '500px' }">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Title</th>
+      <th>
+        <button id="title-sort-button" type="button" class="title-sort-button" (click)="toggleTitleSort()">
+          Title
+          <span>{{ titleSortLabel }}</span>
+        </button>
+      </th>
       <th>Completed</th>
     </tr>
   </thead>

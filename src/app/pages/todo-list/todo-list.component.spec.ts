@@ -46,9 +46,9 @@ describe('TodoListComponent', () => {
   });
 
   describe('sorting', () => {
-    it('should display sort control', () => {
-      const select = fixture.nativeElement.querySelector('#todo-sort');
-      expect(select).toBeTruthy();
+    it('should display title sort control in table header', () => {
+      const button = fixture.nativeElement.querySelector('#title-sort-button');
+      expect(button).toBeTruthy();
     });
 
     it('should sort todos by title ascending', () => {
@@ -91,6 +91,18 @@ describe('TodoListComponent', () => {
 
       expect(sortedTitles).toEqual(['Apple', 'Zoo']);
       expect(component.todos.map(todo => todo.title)).toEqual(originalTitles);
+    });
+
+    it('should toggle sort direction when clicking title sort button', () => {
+      const button = fixture.nativeElement.querySelector('#title-sort-button') as HTMLButtonElement;
+
+      expect(component.sortDirection).toBe('default');
+      button.click();
+      expect(component.sortDirection).toBe('asc');
+      button.click();
+      expect(component.sortDirection).toBe('desc');
+      button.click();
+      expect(component.sortDirection).toBe('default');
     });
   });
 

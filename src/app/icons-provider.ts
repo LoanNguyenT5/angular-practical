@@ -3,7 +3,9 @@ import {
   MenuUnfoldOutline,
   UserOutline,
   TeamOutline,
-  DownOutline
+  DownOutline,
+  DownloadOutline,
+  UnorderedListOutline
 } from '@ant-design/icons-angular/icons';
 
 export const icons = [
@@ -11,5 +13,7 @@ export const icons = [
   MenuUnfoldOutline,
   UserOutline,
   TeamOutline,
-  DownOutline
+  DownOutline,
+  DownloadOutline,
+  UnorderedListOutline
 ];

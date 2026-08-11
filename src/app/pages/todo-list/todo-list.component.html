@@ -1,0 +1,26 @@
+<div class="todo-list-header">
+  <h2>Todo List</h2>
+  <button nz-button nzType="primary" (click)="exportToCsv()">
+    <nz-icon nzType="download" />
+    Export
+  </button>
+</div>
+
+<nz-table #todoTable [nzBordered]="true" [nzData]="todos" [nzScroll]="{ x: '500px' }">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-template ngFor let-item [ngForOf]="todoTable.data">
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.completed }}</td>
+      </tr>
+    </ng-template>
+  </tbody>
+</nz-table>

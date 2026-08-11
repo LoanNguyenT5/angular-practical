@@ -76,6 +76,30 @@ export class TodoListComponent implements OnInit {
     return 'Original';
   }
 
+  get titleAriaSort(): 'none' | 'ascending' | 'descending' {
+    if (this.sortDirection === 'asc') {
+      return 'ascending';
+    }
+
+    if (this.sortDirection === 'desc') {
+      return 'descending';
+    }
+
+    return 'none';
+  }
+
+  get titleSortAriaLabel(): string {
+    if (this.sortDirection === 'default') {
+      return 'Sort by title, currently original order, click to sort ascending';
+    }
+
+    if (this.sortDirection === 'asc') {
+      return 'Sort by title, currently ascending, click to sort descending';
+    }
+
+    return 'Sort by title, currently descending, click to reset to original order';
+  }
+
   exportToCsv(): void {
     const header = ['id', 'title', 'completed'];
     const rows = this.todos.map(todo => [

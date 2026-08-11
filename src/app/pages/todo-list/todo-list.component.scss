@@ -8,3 +8,15 @@
     margin: 0;
   }
 }
+
+.title-sort-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}

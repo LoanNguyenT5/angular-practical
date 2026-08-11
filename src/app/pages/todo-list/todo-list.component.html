@@ -6,11 +6,16 @@
   </button>
 </div>
 
-<nz-table #todoTable [nzBordered]="true" [nzData]="todos" [nzScroll]="{ x: '500px' }">
+<nz-table #todoTable [nzBordered]="true" [nzData]="displayedTodos" [nzScroll]="{ x: '500px' }">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Title</th>
+      <th [attr.aria-sort]="titleAriaSort">
+        <button id="title-sort-button" type="button" class="title-sort-button" [attr.aria-label]="titleSortAriaLabel" (click)="toggleTitleSort()">
+          Title
+          <span aria-hidden="true">{{ titleSortLabel }}</span>
+        </button>
+      </th>
       <th>Completed</th>
     </tr>
   </thead>

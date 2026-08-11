@@ -19,6 +19,7 @@ import { TodoService, Todo } from '../../services/todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
+  sortDirection: 'default' | 'asc' | 'desc' = 'default';
 
   constructor(
     private todoService: TodoService,
@@ -37,6 +38,66 @@ export class TodoListComponent implements OnInit {
       },
       error: (err) => console.error('Error loading todos', err)
     });
+  }
+
+  get displayedTodos(): Todo[] {
+    if (this.sortDirection === 'default') {
+      return this.todos;
+    }
+
+    return [...this.todos].sort((a, b) =>
+      this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
+    );
+  }
+
+  toggleTitleSort(): void {
+    if (this.sortDirection === 'default') {
+      this.sortDirection = 'asc';
+      return;
+    }
+
+    if (this.sortDirection === 'asc') {
+      this.sortDirection = 'desc';
+      return;
+    }
+
+    this.sortDirection = 'default';
+  }
+
+  get titleSortLabel(): string {
+    if (this.sortDirection === 'asc') {
+      return 'A → Z';
+    }
+
+    if (this.sortDirection === 'desc') {
+      return 'Z → A';
+    }
+
+    return 'Original';
+  }
+
+  get titleAriaSort(): 'none' | 'ascending' | 'descending' {
+    if (this.sortDirection === 'asc') {
+      return 'ascending';
+    }
+
+    if (this.sortDirection === 'desc') {
+      return 'descending';
+    }
+
+    return 'none';
+  }
+
+  get titleSortAriaLabel(): string {
+    if (this.sortDirection === 'default') {
+      return 'Sort by title, currently original order, click to sort ascending';
+    }
+
+    if (this.sortDirection === 'asc') {
+      return 'Sort by title, currently ascending, click to sort descending';
+    }
+
+    return 'Sort by title, currently descending, click to reset to original order';
   }
 
   exportToCsv(): void {
